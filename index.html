@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-Cruiser Fitness Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a12;
+            color: white;
+        }
+        .anime-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px #00a8ff;
+        }
+        .level-badge {
+            background: linear-gradient(135deg, #00a8ff, #00ffaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .animate-confetti {
+            animation: animate-confetti 3s linear forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header with Logout Button -->
+        <header class="flex justify-between items-center mb-8">
+            <button onclick="auth.logout()" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
+            <div class="flex items-center space-x-4">
+                <div class="text-center">
+                    <p class="text-sm opacity-80">LEVEL</p>
+                    <p class="text-2xl font-bold level-badge">1</p>
+                </div>
+                <div class="w-32 h-3 bg-gray-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-blue-500 to-teal-400 xp-bar-glow" style="width: 30%"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Rest of the dashboard content remains the same -->
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Workout Tracker -->
+            <section class="bg-gray-900 p-6 rounded-xl border border-gray-800 md:col-span-2">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-dumbbell mr-2 text-blue-400"></i>
+                    TODAY'S WORKOUT
+                </h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-800 rounded-lg flex justify-between items-center">
+                        <div>
+                            <h3 class="font-medium">Push-ups</h3>
+                            <p class="text-sm text-gray-400">3 sets of 10 reps</p>
+                        </div>
+                        <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition">
+                            Complete
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Panel -->
+            <section class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-6">
+                <div>
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-chart-line mr-2 text-green-400"></i>
+                        STATS
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-3 rounded-lg">
+                            <p class="text-sm text-gray-400">Strength</p>
+                            <p class="text-lg">+5%</p>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-lg">
+                            <p class="text-sm text-gray-400">Stamina</p>
+                            <p class="text-lg">+3%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-trophy mr-2 text-yellow-400"></i>
+                        DAILY GOALS
+                    </h2>
+                    <div class="w-full bg-gray-800 h-2 rounded-full mb-2">
+                        <div class="bg-gradient-to-r from-blue-500 to-teal-400 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <p class="text-sm text-right">3/4 tasks completed</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Level Up Modal -->
+    <div id="levelUpModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 hidden">
+        <div class="bg-gray-900 p-8 rounded-xl border-2 border-blue-500 max-w-md w-full text-center animate-pulse">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-3xl font-bold mb-2 text-blue-400">LEVEL UP!</h2>
+            <p class="text-xl mb-6">You've reached level <span id="newLevelDisplay" class="level-badge">2</span></p>
+            <button onclick="document.getElementById('levelUpModal').classList.add('hidden')" 
+                    class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition">
+                Continue Training
+            </button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
