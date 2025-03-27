@@ -1,0 +1,58 @@
+/* Existing animations */
+@keyframes animate-confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(600px) rotate(360deg); opacity: 0; }
+}
+
+/* Unique Level Up Effects */
+@keyframes power-surge {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes energy-wave {
+    0% { box-shadow: 0 0 5px #00a8ff; }
+    50% { box-shadow: 0 0 20px #00ffaa, 0 0 30px #00a8ff; }
+    100% { box-shadow: 0 0 5px #00a8ff; }
+}
+
+.level-up-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.energy-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,168,255,0.2) 0%, rgba(0,255,170,0) 70%);
+    animation: power-surge 2s ease-in-out infinite;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00a8ff, #00ffaa);
+    filter: drop-shadow(0 0 2px #00a8ff);
+}
+
+/* New unique particle effects */
+@keyframes particle-float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
+}
+
+@keyframes particle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
